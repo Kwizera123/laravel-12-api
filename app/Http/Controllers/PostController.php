@@ -43,7 +43,7 @@ class PostController extends Controller
          $validated = Validator::make($request->all(),[
              'title' => 'required|string',
              'content' => 'required|string',
-             'post_data' => 'required|string',
+             'post_id' => 'required|integer',
         ]);
 
         if($validated->fails()){
@@ -68,5 +68,10 @@ class PostController extends Controller
             return response()->json(['error' => $e->getMessage()], 403);
         }
 
+    }
+
+    //retrieve all post
+    public function getAllPosts(){
+        //
     }
 }
