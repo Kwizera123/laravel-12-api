@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikesController;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,5 +32,6 @@ Route::middleware('auth:sanctum')->group(function(){
 
       //Comment
       Route::post('/comment', [CommentController::class, 'postComment']);
+      Route::post('/like', [LikesController::class, 'likePost']);
     
 });

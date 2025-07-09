@@ -19,4 +19,8 @@ class Post extends Model
         function comment(){
         return $this->belongsTo( Comment::class, 'user_id');
     }
+
+        function likes(){
+        return $this->belongsTo( Like::class, 'user_id');
+    }
 }
