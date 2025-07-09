@@ -120,11 +120,23 @@ class PostController extends Controller
         try{
             //$post = Post::find($post_id); // first approach
             $post = Post::where('id',$post_id)->first(); // second approach
-                        return response()->json([
+            return response()->json([
                 'post' => $post
             ], 200);
         } catch(\Exception $e) {
             return response()->json(['error' => $e->getMessage()], 403);
+        }
+    }
+    // Delete API Post
+    public function deletePost(Request $request, $post_id){
+        try{
+            $post = Post::find($post_id);
+            $post->delete();
+             return response()->json([
+                'message' => 'Post deleted successfully'
+            ], 200);
+        } catch (\Exception $e){
+             return response()->json(['error' => $e->getMessage()], 403);
         }
     }
 }

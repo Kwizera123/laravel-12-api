@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->group(function(){
      Route::post('/edit/post', [PostController::class,'editPost']);
           // Edit Post api with id approach 2
      Route::post('/edit/post/{post_id}', [PostController::class,'editPost2']);
+     //Delete Post
+      Route::post('/delete/post/{post_id}', [PostController::class,'deletePost']);
     
 });
