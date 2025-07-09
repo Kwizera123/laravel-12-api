@@ -11,4 +11,12 @@ class Post extends Model
         'content',
         'user_id',
     ];
+
+    function user(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+        function comment(){
+        return $this->belongsTo( Comment::class, 'user_id');
+    }
 }

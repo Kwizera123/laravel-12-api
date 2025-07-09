@@ -119,7 +119,7 @@ class PostController extends Controller
     public function getPost($post_id){
         try{
             //$post = Post::find($post_id); // first approach
-            $post = Post::where('id',$post_id)->first(); // second approach
+            $post = Post::with('user','comment')->where('id',$post_id)->first(); // second approach
             return response()->json([
                 'post' => $post
             ], 200);
