@@ -12,6 +12,10 @@ Route::get('/user', function (Request $request) {
 Route::post('/register',[AuthController::class,'register']);
 Route::post('/login',[AuthController::class,'login']);
 
+ // Get all posts no need to authanticate
+    Route::get('/all/posts', [PostController::class,'getAllPosts']);
+    Route::get('/single/post/{post_id}', [PostController::class,'getPost']);
+
 Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logout',[AuthController::class,'logout']);
 
@@ -19,4 +23,7 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::post('/add/post', [PostController::class,'addNewPost']);
      // Edit Post api approach
      Route::post('/edit/post', [PostController::class,'editPost']);
+          // Edit Post api with id approach 2
+     Route::post('/edit/post/{post_id}', [PostController::class,'editPost2']);
+    
 });
